@@ -2,6 +2,7 @@ package com.epam.training.student_kristina_vaskovich.classes.main_task;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Optional;
 
 public class Student { //!!создание списка студентов, а также вывод данных по заданию в классе Main
     private int id;
@@ -143,46 +144,20 @@ public class Student { //!!создание списка студентов, а 
                 '}';
     }
 
-    public static ArrayList<Student> listOfStudentsOfFaculty(ArrayList<Student> students, String faculty) {
-        ArrayList<Student> newList = new ArrayList<>();
-        for (Student student : students) {
-            if (student.getFaculty() == faculty) {
-                newList.add(student);
-            }
-        }
-        return newList;
+    public static Optional<Student> listOfStudentsOfFaculty(ArrayList<Student> students, String faculty) {
+        return students.stream().filter(s -> s.getFaculty() != null && s.getFaculty().equals(faculty)).findAny();
     }
 
-    public static ArrayList<Student> listOfStudentsOfFacultyAndCourse(ArrayList<Student> students, String faculty, String course) {
-        ArrayList<Student> newList = new ArrayList<>();
-        for (Student student : students) {
-            if (student.getFaculty() == faculty && student.getCourse() == course) {
-                newList.add(student);
-            }
-        }
-        return newList;
+    public static Optional<Student> listOfStudentsOfFacultyAndCourse(ArrayList<Student> students, String faculty, String course) {
+        return students.stream().filter(s -> s.getFaculty() != null && s.getCourse() != null &&
+                s.getFaculty().equals(faculty) && s.getCourse().equals(course)).findAny();
     }
 
-    public static ArrayList<Student> listOfStudentsWhoWereBornAfterDate(ArrayList<Student> students, Date date) {
-        ArrayList<Student> newList = new ArrayList<>();
-        for (Student student : students) {
-            if (student.getDateOfBirth() == null) {
-                continue;
-            }
-            if (student.getDateOfBirth().after(date)) {
-                newList.add(student);
-            }
-        }
-        return newList;
+    public static Optional<Student> listOfStudentsWhoWereBornAfterDate(ArrayList<Student> students, Date date) {
+        return students.stream().filter(s -> s.getDateOfBirth() != null && s.getDateOfBirth().after(date)).findAny();
     }
 
-    public static ArrayList<Student> listOfStudentsOfGroup(ArrayList<Student> students, String group) {
-        ArrayList<Student> newList = new ArrayList<>();
-        for (Student student : students) {
-            if (student.getGroup() == group) {
-                newList.add(student);
-            }
-        }
-        return newList;
+    public static Optional<Student> listOfStudentsOfGroup(ArrayList<Student> students, String group) {
+        return students.stream().filter(s -> s.getGroup() != null && s.getGroup().equals(group)).findAny();
     }
 }
