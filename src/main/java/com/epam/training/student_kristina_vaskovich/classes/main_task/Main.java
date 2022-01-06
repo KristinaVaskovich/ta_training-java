@@ -16,6 +16,9 @@ public class Main {
         Student student9 = new Student(9, "Сидоров", "Иван", "Иванович",
                 new Date(90, 4, 5), "ул.Первая, 1", 802987,
                 "Факультет №5", "Курс №1", "Группа №6");
+        Student student10 = new Student(10, "Сидоров", "Петр", "Иванович",
+                new Date(91, 4, 5), "ул.Первая, 1", 802987,
+                "Факультет №5", "Курс №1", "Группа №6");
 
         ArrayList<Student> listOfStudents = new ArrayList<>();
         listOfStudents.add(student1);
@@ -27,23 +30,23 @@ public class Main {
         listOfStudents.add(student7);
         listOfStudents.add(student8);
         listOfStudents.add(student9);
+        listOfStudents.add(student10);
 
         System.out.println("List od students of faculty №3 : ");
-        Student.listOfStudentsOfFaculty(listOfStudents, "Факультет №3").
-                ifPresent(s -> System.out.println(s.toString()));
+        Student.listOfStudentsOfFaculty(listOfStudents, "Факультет №3").forEach(System.out::println);
         System.out.println();
 
         System.out.println("List od students of faculty №5 and course №1: ");
         Student.listOfStudentsOfFacultyAndCourse(listOfStudents, "Факультет №5", "Курс №1").
-                ifPresent(s -> System.out.println(s.toString()));
+                forEach(System.out::println);
         System.out.println();
 
         System.out.println("List od students who were born after 01.01.89: ");
         Student.listOfStudentsWhoWereBornAfterDate(listOfStudents, new Date(89, 1, 1)).
-                ifPresent(s -> System.out.println(s.toString()));
+                forEach(System.out::println);
         System.out.println();
 
         System.out.println("List od students of group №5: ");
-        Student.listOfStudentsOfGroup(listOfStudents, "Группа №5").ifPresent(s-> System.out.println(s.toString()));
+        Student.listOfStudentsOfGroup(listOfStudents, "Группа №5").forEach(System.out::println);
     }
 }

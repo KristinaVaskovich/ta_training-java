@@ -2,7 +2,9 @@ package com.epam.training.student_kristina_vaskovich.classes.main_task;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class Student { //!!создание списка студентов, а также вывод данных по заданию в классе Main
     private int id;
@@ -144,20 +146,20 @@ public class Student { //!!создание списка студентов, а 
                 '}';
     }
 
-    public static Optional<Student> listOfStudentsOfFaculty(ArrayList<Student> students, String faculty) {
-        return students.stream().filter(s -> s.getFaculty() != null && s.getFaculty().equals(faculty)).findAny();
+    public static List<Student> listOfStudentsOfFaculty(ArrayList<Student> students, String faculty) {
+        return students.stream().filter(s -> s.getFaculty() != null && s.getFaculty().equals(faculty)).collect(Collectors.toList());
     }
 
-    public static Optional<Student> listOfStudentsOfFacultyAndCourse(ArrayList<Student> students, String faculty, String course) {
+    public static List<Student> listOfStudentsOfFacultyAndCourse(ArrayList<Student> students, String faculty, String course) {
         return students.stream().filter(s -> s.getFaculty() != null && s.getCourse() != null &&
-                s.getFaculty().equals(faculty) && s.getCourse().equals(course)).findAny();
+                s.getFaculty().equals(faculty) && s.getCourse().equals(course)).collect(Collectors.toList());
     }
 
-    public static Optional<Student> listOfStudentsWhoWereBornAfterDate(ArrayList<Student> students, Date date) {
-        return students.stream().filter(s -> s.getDateOfBirth() != null && s.getDateOfBirth().after(date)).findAny();
+    public static List<Student> listOfStudentsWhoWereBornAfterDate(ArrayList<Student> students, Date date) {
+        return students.stream().filter(s -> s.getDateOfBirth() != null && s.getDateOfBirth().after(date)).collect(Collectors.toList());
     }
 
-    public static Optional<Student> listOfStudentsOfGroup(ArrayList<Student> students, String group) {
-        return students.stream().filter(s -> s.getGroup() != null && s.getGroup().equals(group)).findAny();
+    public static List<Student> listOfStudentsOfGroup(ArrayList<Student> students, String group) {
+        return students.stream().filter(s -> s.getGroup() != null && s.getGroup().equals(group)).collect(Collectors.toList());
     }
 }
