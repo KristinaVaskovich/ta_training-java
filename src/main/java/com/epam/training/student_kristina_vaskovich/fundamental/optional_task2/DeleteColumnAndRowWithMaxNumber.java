@@ -23,13 +23,13 @@ public class DeleteColumnAndRowWithMaxNumber {
         program.prettyPrintMatrix(matrix);
         System.out.println();
 
-        int[][] modifiedMatrix = program.deleteRowCol(matrix);
+        int[][] modifiedMatrix = program.deleteRowsAndColumns(matrix);
         System.out.println("After:");
         program.prettyPrintMatrix(modifiedMatrix);
     }
 
-    private int[][] deleteRowCol(int[][] matrix) {
-        int max = findMax(matrix);
+    private int[][] deleteRowsAndColumns(int[][] matrix) {
+        int max = findMaxValueInMatrix(matrix);
         determineCoordinatesMax(matrix, max);
 
         System.out.println("Maximum: " + max);
@@ -43,7 +43,7 @@ public class DeleteColumnAndRowWithMaxNumber {
         return modifiedMatrix;
     }
 
-    private int findMax(int[][] matrix) {
+    private int findMaxValueInMatrix(int[][] matrix) {
         int max = matrix[0][0];
         for (int[] row : matrix) {
             for (int value : row) {

@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class NumberWithDifferentChars {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Please, enter the number of random numbers : ");
+        System.out.println("Please, enter the count of random numbers : ");
         int number = scanner.nextInt();
         Long[] numbers = new Long[number];
         for (int i = 0; i < number; i++) {

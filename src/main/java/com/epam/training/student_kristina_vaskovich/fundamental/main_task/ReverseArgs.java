@@ -6,11 +6,11 @@ public class ReverseArgs {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please, enter args: ");
-        String str = scanner.nextLine();
-        char[] reverseArray1 = str.toCharArray();
+        String string = scanner.nextLine();
+        char[] reverseArray = string.toCharArray();
         System.out.println("Reversed args: ");
-        for (int i = reverseArray1.length - 1; i >= 0; i--) {
-            System.out.print(reverseArray1[i]);
+        for (int i = reverseArray.length - 1; i >= 0; i--) {
+            System.out.print(reverseArray[i]);
         }
     }
 }
