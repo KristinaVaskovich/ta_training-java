@@ -2,7 +2,7 @@ package com.epam.training.student_kristina_vaskovich.clean_code.planes;
 
 import java.util.Objects;
 
-public class BasePlane {
+public abstract class BasePlane {
     private String model;
     private int maxSpeed;
     private int maxFlightDistance;
